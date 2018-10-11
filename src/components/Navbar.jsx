@@ -1,6 +1,14 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = props => {
+  const { totalItems } = props;
+  const badge = totalItems && (
+    <a className="nav-link login-link" href="/">
+      <span className="badge badge-warning mr-1">{totalItems}</span>
+      {totalItems > 1 ? "items" : "item"} in cart
+    </a>
+  );
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="/">
@@ -19,12 +27,7 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item active">
-            <a className="nav-link login-link" href="/">
-              <span className="badge badge-warning mr-1">4</span>
-              items in cart
-            </a>
-          </li>
+          <li className="nav-item active">{badge}</li>
         </ul>
       </div>
     </nav>

@@ -13,7 +13,11 @@ const Product = props => {
         </span>
       </div>
       <div className="footer">
-        <Button />
+        <Button
+          product={product}
+          addToCart={props.addToCart}
+          deleteFromCart={props.deleteFromCart}
+        />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ const products = [
     name: "Black Drone",
     price: 210,
     quantity: 5,
+    inCart: 0,
     img: black
   },
   {
@@ -13,6 +14,7 @@ const products = [
     name: "Blue Drone",
     price: 200,
     quantity: 3,
+    inCart: 0,
     img: black
   },
   {
@@ -20,6 +22,7 @@ const products = [
     name: "White Drone",
     price: 300,
     quantity: 2,
+    inCart: 0,
     img: black
   },
   {
@@ -27,6 +30,7 @@ const products = [
     name: "Orange Drone",
     price: 180,
     quantity: 10,
+    inCart: 0,
     img: black
   }
 ];

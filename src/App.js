@@ -10,17 +10,60 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: products
+      products: []
     };
+
+    this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleDeleteFromCart = this.handleDeleteFromCart.bind(this);
+    this.handleTotalItems = this.handleTotalItems.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      products
+    });
+  }
+
+  handleAddToCart(product) {
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
+    products[index].inCart++;
+    this.setState({
+      products
+    });
+  }
+
+  handleDeleteFromCart(product) {
+    const products = [...this.state.products];
+    const index = products.indexOf(product);
+    products[index].inCart--;
+    this.setState({
+      products
+    });
+  }
+
+  handleTotalItems() {
+    const totalItems = this.state.products
+      .map(product => {
+        return product.inCart;
+      })
+      .reduce((prev, value) => {
+        return prev + value;
+      });
+    return totalItems;
   }
 
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar totalItems={this.handleTotalItems()} />
         <Header />
         <div className="container">
-          <Products products={this.state.products} />
+          <Products
+            products={this.state.products}
+            addToCart={this.handleAddToCart}
+            deleteFromCart={this.handleDeleteFromCart}
+          />
         </div>
       </div>
     );
