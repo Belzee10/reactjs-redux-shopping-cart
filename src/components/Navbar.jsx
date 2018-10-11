@@ -2,10 +2,12 @@ import React from "react";
 
 const Navbar = props => {
   const { totalItems } = props;
-  const badge = totalItems && (
+  const badge = (
     <a className="nav-link login-link" href="/">
-      <span className="badge badge-warning mr-1">{totalItems}</span>
-      {totalItems > 1 ? "items" : "item"} in cart
+      {totalItems > 0 && (
+        <span className="badge badge-warning mr-1">{totalItems}</span>
+      )}
+      Cart
     </a>
   );
 
