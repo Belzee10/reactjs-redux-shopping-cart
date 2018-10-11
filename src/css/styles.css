@@ -6,3 +6,10 @@
 .card .btn {
   border-radius: 0.25rem;
 }
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.buttons .btn {
+  padding: 4px 12px;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const Product = props => {
   const { product } = props;
@@ -12,9 +13,7 @@ const Product = props => {
         </span>
       </div>
       <div className="footer">
-        <button className="btn btn-warning btn-sm btn-block">
-          Add to cart
-        </button>
+        <Button />
       </div>
     </div>
   );
